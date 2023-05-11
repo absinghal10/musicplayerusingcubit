@@ -47,6 +47,7 @@ class AudioPlayerCubit extends Cubit<AudioPlayerState> {
   Future<void> stop() async {
     try {
       await _audioPlayer.stop();
+      isPlaying = false;
       emit(AudioPlayerStopped());
     } catch (e) {
       emit(AudioPlayerError());
